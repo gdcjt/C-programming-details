@@ -4,16 +4,16 @@ using namespace std;
 class A {
 public:
 	A() { cout << 'A'; }
-	~A() { cout << "~A"; }                              //the result is ABBAC~C~A~B~B~A
-};                                                    //
-
-class B {
-public:
-  B() { cout << 'B'; }
-	~B(）{ cout << "~B"; }
-};
-
-class C :public A {
+	~A() { cout << "~A"; }                        //the result is ABBAC~C~A~B~B~A
+};                                                    //when we build up a class object,if it's a derived class
+                                                      //build up its parent class first
+class B {                                             //then,build up variables declared in the class definition in order
+public:                                               //no matter it's public or private
+        B() { cout << 'B'; }                          //and no matter if the constructor used them actually
+	~B(）{ cout << "~B"; }                        //build them in writing order
+};                                                    //last,call the constructor
+                                                      //when it goes to destruct
+class C :public A {                                   //delete them all in opposite order at building them up
 private:
 	B b;
 public:
@@ -28,3 +28,10 @@ int main()
 	C obj;
 	return 0;
 }
+//当创建一个类对象时，如果该类是派生类
+//首先创建父类对象（调用父类构造函数）
+//之后，按顺序创建类中声明的变量
+//不管该变量是private还是public
+//也不管构造函数实际有没有用到这些变量,都按编写顺序创建
+//最后，调用该类本身的构造函数
+//析构时，按创建时相反的顺序析构
