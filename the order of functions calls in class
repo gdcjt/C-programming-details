@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+
+class A {
+public:
+	A() { cout << 'A'; }
+	~A() { cout << "~A"; }                              //the result is ABBAC~C~A~B~B~A
+};                                                    //
+
+class B {
+public:
+  B() { cout << 'B'; }
+	~B(）{ cout << "~B"; }
+};
+
+class C :public A {
+private:
+	B b;
+public:
+	C() { cout << 'C'; }
+	~C() { cout << "~C"; }
+	B jklj;
+	A a;
+};
+
+int main()
+{
+	C obj;
+	return 0;
+}
