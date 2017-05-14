@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+
+class BASE {
+	char c;
+public:
+	BASE(char n) :c(n) { cout << c; }
+	virtual ~BASE() { cout << c; }
+};
+class DERIVED :public BASE {
+	char c;
+public:
+	DERIVED(char n) :BASE(n + 1), c(n) { cout << c; }//利用参数初始化表对数据成员进行初始化
+	~DERIVED() { cout << c; }                        //在原来的函数首部末尾加一个冒号，然后列出参数的初始化表
+};                           //初始化表的格式为“数据成员（构造函数的某个参数名），数据成员（构造函数的某个参数名），···{}”
+                             //注意初始化表之后要加花括号，可以函数定义可以不包含任何内容
+int main()
+{
+	DERIVED d('X');
+	return 0;
+}
+
+//the result is YXXY
