@@ -1,0 +1,17 @@
+//if there is a statement follow
+
+int A[2][3] = {1,2,3,4,5,6};
+
+//then the value saved as follow
+//            A[?][0]     A[?][1]    A[?][2]
+// A[0][?]        1           2          3
+// A[1][?]        4           5          6
+//that means the first subscript is about the rows
+//and the second is about the columns
+
+//when you use a dereferencing operator to a pointer pointing to a two-dimension array
+//like *A, it means A[0][3], still a pointer pointing to a normal array with 3 elements
+//then *(A+1) is A[1][3]
+//*(*(A+1)+1) is A[1][1] equals to 5
+//that means when you want to get a value out of a two-dimension array though using dereferencing operator
+//you must dereference it twice
