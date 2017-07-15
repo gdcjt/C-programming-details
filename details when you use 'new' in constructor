@@ -1,8 +1,8 @@
-//    details when you use 'new' in construction
-//1.when you use 'new' in a construction, you should use 'delete' in the destruction at the same time
+//    details when you use 'new' in constructor
+//1.when you use 'new' in a constructor, you should use 'delete' in the destructor at the same time
 //2.'new' and 'delete' should be the same form(both with '[]', or neither)
-//3.if you creat more than one construction, all constructions should use 'new' with the same form
-//4.you should define a copy construction in case you want to initialize a new object though the old one
+//3.if you creat more than one constructor, all constructors should use 'new' with the same form
+//4.you should define a copy constructor in case you want to initialize a new object though the old one
 //5.you should overload '=' in case you want to assign an object without initialization
 //6.the overload function in 5 usually has self-check at first, then 'delete' statement, then others
 
